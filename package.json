@@ -1,0 +1,22 @@
+{
+  "name": "newman-rupeek",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Satvik-Ambati/newman-rupeek.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Satvik-Ambati/newman-rupeek/issues"
+  },
+  "homepage": "https://github.com/Satvik-Ambati/newman-rupeek#readme",
+  "dependencies": {
+    "newman": "^4.3.0"
+  }
+}
