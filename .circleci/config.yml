@@ -1,0 +1,77 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/node:4.8.2 
+     # - image: mongo:3.4.4
+    steps:
+      - checkout 
+      - run:
+          name: update-npm
+          command: 'sudo npm install -g npm@5'
+      - run:
+          name: install-npm-wee
+          command: npm install
+      - run:
+          name: install newman
+          command: npm install newman     
+      - run:
+          name: Tests
+          command: newman run CI-CD.postman_collection.json -e MyEnv.postman_environment.json
+      # - run:
+      #     name: Deployment
+      #     command: |
+              
+ #             aws deploy create-application --application-name CodeDeployGitHubDemo-App
+#              aws deploy create-deployment-group --application-name CodeDeployGitHubDemo-App --ec2-tag-filters Key=Name,Type=KEY_AND_VALUE,Value=CodeDeployDemo  --deployment-group-name CodeDeployGitHubDemo-DepGrp --service-role-arn arn:aws:iam::358169576441:role/CodeDeployServiceRole
+#  aws deploy push
+            #  aws deploy create-deployment
+            #  aws deploy get-deployment
+        
+      # - run:
+      #     name: start connection and test
+      #     command: node app
+  # test:
+  #   docker:
+  #     - image: circleci/node:4.8.2
+  #   steps:
+  #   # - checkout
+  #     - run:
+  #       name: test
+  #       command: newman run "test.postman_collection.json" 
+
+
+
+           
+
+  # two:
+  #   docker:
+  #     - image: circleci/node:4.8.2
+  #     - image: mongo:3.4.4
+  #   steps:
+  #     - checkout
+  #     - run:
+  #         name: update-npm
+  #         command: 'sudo npm install -g npm@5'
+  #     - restore_cache:
+  #         key: dependency-cache-{{ checksum "package.json" }}
+  #     - run:
+  #         name: install-npm-wee
+  #         command: npm install
+  #     - save_cache:
+  #         key: dependency-cache-{{ checksum "package.json" }}
+  #         paths:
+  #           - ./node_modules      
+      
+  #     - run:
+  #         name: test
+  #         command: npm test
+
+# workflows:
+#   version: 2
+#   one_and_two:
+#     jobs:
+#       - build
+#       - test
+
+
