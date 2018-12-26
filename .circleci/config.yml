@@ -27,7 +27,8 @@ jobs:
           
       - run:
           name: Tests
-          command: sudo newman run CI-CD.postman_collection.json -e MyEnv.postman_environment.json
+          command: echo $PATH 
+          #  sudo newman run CI-CD.postman_collection.json -e MyEnv.postman_environment.json
       # - run:
       #     name: Deployment
       #     command: |
