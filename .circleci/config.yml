@@ -9,7 +9,7 @@ jobs:
       - run:
           name: update-npm
           command: |
-              sudo npm install -g npm@5
+              sudo npm install -g n
               sudo n stable
       - restore_cache:
           key: dependency-cache-{{ checksum "package.json" }}
