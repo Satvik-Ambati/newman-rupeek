@@ -9,12 +9,20 @@ jobs:
       - run:
           name: update-npm
           command: 'sudo npm install -g npm@5'
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          
       - run:
           name: install-npm-wee
           command: npm install
       - run:
           name: install newman
-          command: npm install newman     
+          command: npm install newman 
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules    
+          
       - run:
           name: Tests
           command: newman run CI-CD.postman_collection.json -e MyEnv.postman_environment.json
