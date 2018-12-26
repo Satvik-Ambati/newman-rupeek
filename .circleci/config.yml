@@ -17,7 +17,7 @@ jobs:
           command: npm install
       - run:
           name: install newman
-          command: npm install newman 
+          command: npm install -g newman 
       - save_cache:
           key: dependency-cache-{{ checksum "package.json" }}
           paths:
